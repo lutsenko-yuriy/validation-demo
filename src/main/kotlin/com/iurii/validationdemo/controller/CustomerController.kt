@@ -2,10 +2,13 @@ package com.iurii.validationdemo.controller
 
 import com.iurii.validationdemo.model.Customer
 import jakarta.validation.Valid
+import org.springframework.beans.propertyeditors.StringTrimmerEditor
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.validation.BindingResult
+import org.springframework.web.bind.WebDataBinder
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.InitBinder
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.RequestMapping
 
@@ -28,5 +31,11 @@ class CustomerController {
         } else {
             "customer/register"
         }
+    }
+
+    @InitBinder
+    fun initBinder(binder: WebDataBinder) {
+        val editor = StringTrimmerEditor(true)
+        binder.registerCustomEditor(String::class.java, editor)
     }
 }
