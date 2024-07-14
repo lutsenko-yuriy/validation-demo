@@ -10,5 +10,9 @@ The customer is confirmed: <span th:text="${customer.firstName + ' ' + customer.
 <div th:if="${customer.freePasses != null}">
     The customer has <span th:text="${customer.freePasses}"/> free passes
 </div>
+<br><br>
+<div th:if="${customer.postalCode != null}">
+    The customer's postal code is <span th:text="${customer.postalCode}"/>
+</div>
 </body>
 </html>
