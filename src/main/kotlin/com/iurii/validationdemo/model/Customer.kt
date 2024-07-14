@@ -1,5 +1,6 @@
 package com.iurii.validationdemo.model
 
+import com.iurii.validationdemo.validation.CourseCode
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotNull
@@ -20,4 +21,7 @@ data class Customer(
 
     @field:Pattern(regexp = "^[a-zA-Z0-9]{5}$", message = "Only 5 digits/letters")
     var postalCode: String? = null,
+
+    @field:CourseCode(value = "ASD", message = "Must start with ASD")
+    var courseCode: String? = null,
 )

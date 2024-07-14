@@ -13,6 +13,7 @@ class CourseCodeConstraintValidator : ConstraintValidator<CourseCode, String> {
     }
 
     override fun isValid(value: String?, context: ConstraintValidatorContext?): Boolean {
-        return value?.startsWith("ABC") ?: true
+
+        return prefix?.let { value?.startsWith(it) } ?: true
     }
 }
