@@ -5,6 +5,10 @@
     <title>Customer confirmation</title>
 </head>
 <body>
-The customer is confirmed: <span th:text="${customer.firstName + ' ' + customer.lastName}" />
+The customer is confirmed: <span th:text="${customer.firstName + ' ' + customer.lastName}"/>
+<br><br>
+<div th:if="${customer.freePasses != null}">
+    The customer has <span th:text="${customer.freePasses}"/> free passes
+</div>
 </body>
 </html>
